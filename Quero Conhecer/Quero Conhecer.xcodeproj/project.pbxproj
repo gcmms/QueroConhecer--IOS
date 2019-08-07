@@ -10,6 +10,7 @@
 		512E680422DCC8530094AE85 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E680322DCC8530094AE85 /* PlacesTableViewController.swift */; };
 		512E680622DCC9250094AE85 /* PlacesFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E680522DCC9250094AE85 /* PlacesFinderViewController.swift */; };
 		519D32FC22FA68DE003F4212 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519D32FB22FA68DE003F4212 /* MapViewController.swift */; };
+		519D32FE22FA6F0D003F4212 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519D32FD22FA6F0D003F4212 /* Place.swift */; };
 		51AC2D5B22DCBB1900D8DCD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AC2D5A22DCBB1900D8DCD7 /* AppDelegate.swift */; };
 		51AC2D5D22DCBB1900D8DCD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AC2D5C22DCBB1900D8DCD7 /* ViewController.swift */; };
 		51AC2D6022DCBB1900D8DCD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51AC2D5E22DCBB1900D8DCD7 /* Main.storyboard */; };
@@ -19,8 +20,9 @@
 
 /* Begin PBXFileReference section */
 		512E680322DCC8530094AE85 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
-		512E680522DCC9250094AE85 /* PlacesFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlacesFinderViewController.swift; path = "Quero Conhecer/PlacesFinderViewController.swift"; sourceTree = "<group>"; };
+		512E680522DCC9250094AE85 /* PlacesFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesFinderViewController.swift; sourceTree = "<group>"; };
 		519D32FB22FA68DE003F4212 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		519D32FD22FA6F0D003F4212 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		51AC2D5722DCBB1900D8DCD7 /* Quero Conhecer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quero Conhecer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51AC2D5A22DCBB1900D8DCD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51AC2D5C22DCBB1900D8DCD7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +46,6 @@
 		51AC2D4E22DCBB1900D8DCD7 = {
 			isa = PBXGroup;
 			children = (
-				512E680522DCC9250094AE85 /* PlacesFinderViewController.swift */,
 				51AC2D5922DCBB1900D8DCD7 /* Quero Conhecer */,
 				51AC2D5822DCBB1900D8DCD7 /* Products */,
 			);
@@ -61,6 +62,8 @@
 		51AC2D5922DCBB1900D8DCD7 /* Quero Conhecer */ = {
 			isa = PBXGroup;
 			children = (
+				512E680522DCC9250094AE85 /* PlacesFinderViewController.swift */,
+				519D32FD22FA6F0D003F4212 /* Place.swift */,
 				512E680322DCC8530094AE85 /* PlacesTableViewController.swift */,
 				51AC2D5A22DCBB1900D8DCD7 /* AppDelegate.swift */,
 				51AC2D5C22DCBB1900D8DCD7 /* ViewController.swift */,
@@ -147,6 +150,7 @@
 				512E680622DCC9250094AE85 /* PlacesFinderViewController.swift in Sources */,
 				51AC2D5D22DCBB1900D8DCD7 /* ViewController.swift in Sources */,
 				51AC2D5B22DCBB1900D8DCD7 /* AppDelegate.swift in Sources */,
+				519D32FE22FA6F0D003F4212 /* Place.swift in Sources */,
 				519D32FC22FA68DE003F4212 /* MapViewController.swift in Sources */,
 				512E680422DCC8530094AE85 /* PlacesTableViewController.swift in Sources */,
 			);
