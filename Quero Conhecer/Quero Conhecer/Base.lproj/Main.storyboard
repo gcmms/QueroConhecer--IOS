@@ -165,7 +165,7 @@
         <!--Title-->
         <scene sceneID="jf7-2h-gff">
             <objects>
-                <viewController id="8zU-L0-bI1" sceneMemberID="viewController">
+                <viewController id="8zU-L0-bI1" customClass="MapViewController" customModule="Quero_Conhecer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jcY-3h-kBT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,34 +173,80 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-et-VDc">
                                 <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                             </mapView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1QL-j6-Edd">
-                                <rect key="frame" x="20" y="680" width="374" height="160"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="O que você deseja buscar?" translatesAutoresizingMaskIntoConstraints="NO" id="n5a-JD-Rsf">
-                                <rect key="frame" x="0.0" y="140" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <searchBar contentMode="redraw" placeholder="O que você deseja buscar?" translatesAutoresizingMaskIntoConstraints="NO" id="n5a-JD-Rsf">
+                                <rect key="frame" x="0.0" y="140" width="414" height="56"/>
                                 <color key="barTintColor" name="main"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1QL-j6-Edd">
+                                <rect key="frame" x="20" y="686" width="374" height="210"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWQ-nN-dbG">
+                                        <rect key="frame" x="12" y="12" width="350" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endereço " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Uf-TM-CFI">
+                                        <rect key="frame" x="12" y="35" width="350" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cT-oV-KMf">
+                                        <rect key="frame" x="287" y="8" width="79" height="30"/>
+                                        <state key="normal" title="Traçar Rota">
+                                            <color key="titleColor" name="main"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showRoute:" destination="8zU-L0-bI1" eventType="touchUpInside" id="Dq2-OE-q0s"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="aWQ-nN-dbG" secondAttribute="trailing" constant="12" id="1CO-zV-YY8"/>
+                                    <constraint firstItem="1cT-oV-KMf" firstAttribute="top" secondItem="1QL-j6-Edd" secondAttribute="top" constant="8" id="A5Z-yr-DVp"/>
+                                    <constraint firstAttribute="trailing" secondItem="1cT-oV-KMf" secondAttribute="trailing" constant="8" id="AAQ-DS-O4X"/>
+                                    <constraint firstItem="1Uf-TM-CFI" firstAttribute="leading" secondItem="1QL-j6-Edd" secondAttribute="leading" constant="12" id="MCa-3a-pRp"/>
+                                    <constraint firstItem="1Uf-TM-CFI" firstAttribute="top" secondItem="aWQ-nN-dbG" secondAttribute="bottom" constant="2" id="PLw-Th-asN"/>
+                                    <constraint firstItem="aWQ-nN-dbG" firstAttribute="top" secondItem="1QL-j6-Edd" secondAttribute="top" constant="12" id="WfD-hK-Ueq"/>
+                                    <constraint firstItem="aWQ-nN-dbG" firstAttribute="leading" secondItem="1QL-j6-Edd" secondAttribute="leading" constant="12" id="ZMQ-MX-Oa2"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Uf-TM-CFI" secondAttribute="trailing" constant="12" id="nme-zf-yb0"/>
+                                    <constraint firstItem="1Uf-TM-CFI" firstAttribute="top" secondItem="aWQ-nN-dbG" secondAttribute="bottom" constant="2" id="whF-Mu-fjG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="main"/>
                         <constraints>
-                            <constraint firstItem="dzi-wS-60f" firstAttribute="bottom" secondItem="1QL-j6-Edd" secondAttribute="bottom" constant="22" id="0hL-ah-khN"/>
                             <constraint firstItem="Xd1-et-VDc" firstAttribute="trailing" secondItem="dzi-wS-60f" secondAttribute="trailing" id="4JW-Gj-oLM"/>
                             <constraint firstItem="Xd1-et-VDc" firstAttribute="leading" secondItem="dzi-wS-60f" secondAttribute="leading" id="5M2-9b-yKa"/>
+                            <constraint firstAttribute="bottom" secondItem="1QL-j6-Edd" secondAttribute="bottom" id="BP7-zx-iLH"/>
                             <constraint firstItem="dzi-wS-60f" firstAttribute="trailing" secondItem="1QL-j6-Edd" secondAttribute="trailing" constant="20" id="J5x-59-9Cl"/>
+                            <constraint firstItem="n5a-JD-Rsf" firstAttribute="trailing" secondItem="dzi-wS-60f" secondAttribute="trailing" id="XeL-mQ-HFe"/>
                             <constraint firstItem="Xd1-et-VDc" firstAttribute="top" secondItem="dzi-wS-60f" secondAttribute="top" id="ddI-Vf-vhm"/>
                             <constraint firstItem="1QL-j6-Edd" firstAttribute="leading" secondItem="dzi-wS-60f" secondAttribute="leading" constant="20" id="eSq-Ft-6FI"/>
+                            <constraint firstItem="n5a-JD-Rsf" firstAttribute="leading" secondItem="dzi-wS-60f" secondAttribute="leading" id="jdE-mq-tA0"/>
                             <constraint firstAttribute="bottom" secondItem="Xd1-et-VDc" secondAttribute="bottom" id="qfV-vu-l0m"/>
+                            <constraint firstItem="n5a-JD-Rsf" firstAttribute="top" secondItem="dzi-wS-60f" secondAttribute="top" id="yzx-HV-cLr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dzi-wS-60f"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="LRB-Lo-2as">
                         <barButtonItem key="backBarButtonItem" title=" " id="GxP-pg-Xnk"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="mTd-tu-tYs">
+                            <connections>
+                                <action selector="showSearchBar:" destination="8zU-L0-bI1" id="bdv-nL-BCx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="lbAddress" destination="1Uf-TM-CFI" id="3A4-1M-bDJ"/>
+                        <outlet property="lbName" destination="aWQ-nN-dbG" id="0a3-vM-aTN"/>
+                        <outlet property="mapView" destination="Xd1-et-VDc" id="Qvb-fL-egL"/>
+                        <outlet property="searchBar" destination="n5a-JD-Rsf" id="61G-IO-xhi"/>
                         <outlet property="searchDisplayController" destination="dBX-N0-iH5" id="vyG-PM-I4t"/>
+                        <outlet property="viInfo" destination="1QL-j6-Edd" id="r9F-Bj-vp9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UMT-RJ-dT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
