@@ -1,15 +1,6 @@
-//
-//  Place.swift
-//  Quero Conhecer
-//
-//  Created by Gabriel Chirico Mahtuk de Melo Sanzone on 06/08/19.
-//  Copyright © 2019 Gabriel Chirico Mahtuk de Melo Sanzone. All rights reserved.
-//
-
 import Foundation
 import MapKit
-
-struct Place {
+struct Place: Codable {
     let name: String
     let latitude: CLLocationDegrees
     let longitude: CLLocationDegrees
@@ -22,27 +13,32 @@ struct Place {
     static func getFormattedAddress(with placemark: CLPlacemark) -> String {
         var address = ""
         if let street = placemark.thoroughfare {
-            address += street
+            address += street   //Rua
         }
         if let number = placemark.subThoroughfare {
-            address += "\(number)"
+            address += " \(number)" //Número
         }
         if let subLocality = placemark.subLocality {
-            address += ", \(subLocality)"
+            address += ", \(subLocality)"   //Bairro
         }
         if let city = placemark.locality {
-            address += "\n\(city)"
+            address += "\n\(city)" //Cidade
         }
         if let state = placemark.administrativeArea {
-            address += "- \(state)"
+            address += " - \(state)" //Estado
         }
-        if let cep = placemark.postalCode {
-            address += "\n CEP: \(cep)"
+        if let postalCode = placemark.postalCode {
+            address += "\nCEP: \(postalCode)" //CEP
         }
         if let country = placemark.country {
-            address += "\n CEP: \(country)"
+            address += "\n\(country)" //País
         }
         return address
-        
+    }
+    
+}
+extension Place: Equatable {
+    static func ==(lhs: Place, rhs: Place) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
 }

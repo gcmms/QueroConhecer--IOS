@@ -9,6 +9,11 @@
 import UIKit
 import MapKit
 
+protocol PlaceFinderDelegate: class {
+    func addPlace(_ place: Place)
+}
+
+
 class PlacesFinderViewController: UIViewController {
     
     enum PlaceFinderMessageType {
@@ -22,6 +27,7 @@ class PlacesFinderViewController: UIViewController {
     @IBOutlet weak var aiLoading: UIActivityIndicatorView!
     
     var place: Place!
+    weak var delegate: PlaceFinderDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +119,8 @@ class PlacesFinderViewController: UIViewController {
         alert.addAction(cancelAction)
         if hasConfirmation {
             let confirmaAction = UIAlertAction(title: "Ok", style: .default) { (action) in
-                print("ok!!!!!")
+                self.delegate?.addPlace(self.place)
+                self.dismiss(animated: true, completion: nil)
             }
             alert.addAction(confirmaAction)
         }
@@ -134,14 +141,5 @@ class PlacesFinderViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
