@@ -9,6 +9,13 @@
 import UIKit
 import MapKit
 class MapViewController: UIViewController {
+    
+    enum MapMessageType {
+        case routeError
+        case authorizationWarning
+        
+    }
+    
     //MARK: Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
@@ -18,12 +25,17 @@ class MapViewController: UIViewController {
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
     var places: [Place]!
-    
+    var poi: [MKAnnotation] = []
+    // (lazy) é usado para apenas estanciar a variavel qnd ela for usada
+    lazy var locationManager = CLLocationManager()
+    var btUserLocation: MKUserTrackingButton!
     //MARK: showRoute
     @IBAction func showRoute(_ sender: Any) {
     }
     //MARK: showSearchBar
     @IBAction func showSearchBar(_ sender: Any) {
+        searchBar.resignFirstResponder()
+        searchBar.isHidden = !searchBar.isHidden
     }
     
     //MARK: viewDidLoad
@@ -32,6 +44,7 @@ class MapViewController: UIViewController {
         searchBar.isHidden = true
         viInfo.isHidden = true
         mapView.delegate = self
+        locationManager.delegate = self
         mapView.mapType = .mutedStandard
         if places.count == 1 {
             title = places[0].name
@@ -41,8 +54,69 @@ class MapViewController: UIViewController {
         for place in places {
             addToMap(place)
         }
+        
+        configureLocationButton()
+        
         showPlaces()
+        requestUserLocationAuthorization()
     }
+    
+    func configureLocationButton(){
+        btUserLocation = MKUserTrackingButton(mapView: mapV iew)
+        btUserLocation.backgroundColor = .white
+        btUserLocation.frame.origin.x = 10
+        btUserLocation.frame.origin.y = 10
+        btUserLocation.layer.cornerRadius = 1
+        btUserLocation.layer.borderColor = UIColor(named: "main")?.cgColor
+    }
+    
+    func requestUserLocationAuthorization(){
+        if CLLocationManager.locationServicesEnabled(){
+            switch CLLocationManager.authorizationStatus() {
+            case .authorizedAlways,.authorizedWhenInUse:
+                mapView.addSubview(btUserLocation)
+            case .denied:
+                showMessage(type: .authorizationWarning)
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+            case .restricted:
+                break
+    
+            }
+        } else {
+            //nao da
+        }
+    }
+    
+    //MARK: showMessage
+    func showMessage(type: MapMessageType) {
+//        let title: String, message: String
+//        var hasConfirmation: Bool = false
+//
+//        switch type {
+//        case .confirmation(let name):
+//            title   = "Local Encontrado"
+//            message = "Deseja Adiconar o \(name)?"
+//            hasConfirmation = true
+//        case .error(let errorMessage):
+//            title = "Erro"
+//            message = errorMessage
+//
+//        }
+//
+//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+//        alert.addAction(cancelAction)
+//        if hasConfirmation {
+//            let confirmaAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+//                self.delegate?.addPlace(self.place)
+//                self.dismiss(animated: true, completion: nil)
+//            }
+//            alert.addAction(confirmaAction)
+//        }
+//        present(alert, animated: true, completion: nil)
+    }
+    
     //MARK: addToMap
     func addToMap(_ place: Place){
         //Point padrão do iOS
@@ -98,11 +172,27 @@ extension MapViewController: UISearchBarDelegate {
                 guard let response = response else {
                     self.loading.stopAnimating()
                     return
-                    
                 }
-                
+                self.mapView.removeAnnotations(self.poi)
+                self.poi.removeAll()
+                for item in response.mapItems {
+                    //Cria uma Annotation
+                    let annotation = PlaceAnnotation(coordinate: item.placemark.coordinate, type: .poi)
+                    //Adiciona o titulo e subtitulo
+                    annotation.title = item.name
+                    annotation.subtitle = item.phoneNumber
+                    annotation.address = Place.getFormattedAddress(with: item.placemark)
+                    self.poi.append(annotation)
+                }
+                self.mapView.addAnnotations(self.poi)
+                self.mapView.showAnnotations(self.poi, animated: true)
             }
-            
+            self.loading.stopAnimating()
         }
     }
+}
+
+//MARK: CLLocationManagerDelegate
+extension MapViewController: CLLocationManagerDelegate {
+    
 }

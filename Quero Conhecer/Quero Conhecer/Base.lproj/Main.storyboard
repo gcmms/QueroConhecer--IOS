@@ -170,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvX-cB-cQD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2028.985507246377" y="438.61607142857139"/>
+            <point key="canvasLocation" x="1958" y="-236"/>
         </scene>
         <!--Title-->
         <scene sceneID="jf7-2h-gff">
@@ -190,6 +190,9 @@
                                         </constraints>
                                         <color key="barTintColor" name="main"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="8zU-L0-bI1" id="Crm-e3-or0"/>
+                                        </connections>
                                     </searchBar>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-et-VDc">
                                         <rect key="frame" x="0.0" y="66" width="414" height="500"/>
@@ -243,7 +246,7 @@
                                 <color key="color" name="main"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" name="main"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Y2P-vy-yIu" firstAttribute="top" secondItem="dzi-wS-60f" secondAttribute="top" id="0m4-6n-n4V"/>
                             <constraint firstItem="Y2P-vy-yIu" firstAttribute="leading" secondItem="dzi-wS-60f" secondAttribute="leading" id="dnU-0F-wu9"/>
@@ -280,7 +283,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2031.8840579710147" y="-291.29464285714283"/>
+            <point key="canvasLocation" x="1958" y="442"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m2B-cG-sPf">
