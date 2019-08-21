@@ -17,6 +17,7 @@
 		51AC2D6022DCBB1900D8DCD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51AC2D5E22DCBB1900D8DCD7 /* Main.storyboard */; };
 		51AC2D6222DCBB1C00D8DCD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51AC2D6122DCBB1C00D8DCD7 /* Assets.xcassets */; };
 		51AC2D6522DCBB1C00D8DCD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51AC2D6322DCBB1C00D8DCD7 /* LaunchScreen.storyboard */; };
+		51D7C49A230BA1600056B5F6 /* UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7C499230BA1600056B5F6 /* UISearchBarDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		51AC2D6122DCBB1C00D8DCD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51AC2D6422DCBB1C00D8DCD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51AC2D6622DCBB1C00D8DCD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51D7C499230BA1600056B5F6 /* UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBarDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				512E680522DCC9250094AE85 /* PlaceFinderViewController.swift */,
 				51AC2D6122DCBB1C00D8DCD7 /* Assets.xcassets */,
 				519D32FB22FA68DE003F4212 /* MapViewController.swift */,
+				51D7C499230BA1600056B5F6 /* UISearchBarDelegate.swift */,
 				51AC2D6322DCBB1C00D8DCD7 /* LaunchScreen.storyboard */,
 				51AC2D6622DCBB1C00D8DCD7 /* Info.plist */,
 			);
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51D7C49A230BA1600056B5F6 /* UISearchBarDelegate.swift in Sources */,
 				512E680622DCC9250094AE85 /* PlaceFinderViewController.swift in Sources */,
 				51AC2D5D22DCBB1900D8DCD7 /* ViewController.swift in Sources */,
 				51AC2D5B22DCBB1900D8DCD7 /* AppDelegate.swift in Sources */,

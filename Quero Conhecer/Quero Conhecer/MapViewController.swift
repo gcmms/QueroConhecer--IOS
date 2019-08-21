@@ -62,7 +62,7 @@ class MapViewController: UIViewController {
     }
     
     func configureLocationButton(){
-        btUserLocation = MKUserTrackingButton(mapView: mapV iew)
+        btUserLocation = MKUserTrackingButton(mapView: mapView)
         btUserLocation.backgroundColor = .white
         btUserLocation.frame.origin.x = 10
         btUserLocation.frame.origin.y = 10
@@ -156,6 +156,7 @@ extension MapViewController: MKMapViewDelegate {
         return annotationView
     }
 }
+
 //MARK: extension MapViewController
 extension MapViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
