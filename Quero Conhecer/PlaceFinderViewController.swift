@@ -99,33 +99,7 @@ class PlacesFinderViewController: UIViewController {
         return true
     }
     
-    func showMessage(type: PlaceFinderMessageType) {
-        let title: String, message: String
-        var hasConfirmation: Bool = false
-        
-        switch type {
-        case .confirmation(let name):
-            title   = "Local Encontrado"
-            message = "Deseja Adiconar o \(name)?"
-            hasConfirmation = true
-        case .error(let errorMessage):
-            title = "Erro"
-            message = errorMessage
-
-        }
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-        alert.addAction(cancelAction)
-        if hasConfirmation {
-            let confirmaAction = UIAlertAction(title: "Ok", style: .default) { (action) in
-                self.delegate?.addPlace(self.place)
-                self.dismiss(animated: true, completion: nil)
-            }
-            alert.addAction(confirmaAction)
-        }
-        present(alert, animated: true, completion: nil)
-    }
+    
     
     func load(show:Bool) {
         viLoading.isHidden = !show
@@ -142,4 +116,36 @@ class PlacesFinderViewController: UIViewController {
     
 
 
+}
+
+
+extension PlacesFinderViewController {
+    func
+        showMessage(type: PlaceFinderMessageType) {
+        let title: String, message: String
+        var hasConfirmation: Bool = false
+        
+        switch type {
+        case .confirmation(let name):
+            title   = "Local Encontrado"
+            message = "Deseja Adiconar o \(name)?"
+            hasConfirmation = true
+        case .error(let errorMessage):
+            title = "Erro"
+            message = errorMessage
+            
+        }
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        if hasConfirmation {
+            let confirmaAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+                self.delegate?.addPlace(self.place)
+                self.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(confirmaAction)
+        }
+        present(alert, animated: true, completion: nil)
+    }
 }
